@@ -10,7 +10,6 @@ class LoginPage extends Component {
 
   handleChange = (e) => {
     this.setState({
-      // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value,
     });
   };

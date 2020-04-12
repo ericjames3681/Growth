@@ -1,7 +1,7 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
-const SECRET = process.env.SECRET;
 
+const SECRET = process.env.SECRET;
 module.exports = {
   signup,
   login,
@@ -11,6 +11,7 @@ async function signup(req, res) {
   const user = new User(req.body);
   try {
     await user.save();
+    // Be sure to first delete data that should not be in the token
     const token = createJWT(user);
     res.json({ token });
   } catch (err) {
@@ -18,7 +19,6 @@ async function signup(req, res) {
     res.status(400).json(err);
   }
 }
-
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });
@@ -35,8 +35,6 @@ async function login(req, res) {
     return res.status(401).json(err);
   }
 }
-
-/*----- Helper Functions -----*/
 
 function createJWT(user) {
   return jwt.sign(

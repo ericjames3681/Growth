@@ -4,6 +4,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import NavBar from "../../components/NavBar/NavBar";
+import userService from "../../services/userService";
 // import * as quoteAPI from "../services/quotes-api";
 import "./App.css";
 
@@ -11,25 +12,30 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quotes: [],
+      user: userService.getUser(),
     };
   }
 
-  async componentDidMount() {}
+  // async componentDidMount() {}
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  };
+
+  handleSignupOrLogin = () => {
+    this.setState({ user: userService.getUser() });
+  };
 
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar handleLogout={this.handleLogout} />
         <Switch>
           <Route
             exact
             path="/signup"
             render={({ history }) => (
-              <SignupPage
-                history={history}
-                handleSignupOrLogin={this.handleSignupOrLogin}
-              />
+              <SignupPage history={history} handleSignup={this.handleSignup} />
             )}
           />
 
