@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Segment, Menu } from "semantic-ui-react";
+import { Segment, Menu, Header } from "semantic-ui-react";
+import "./NavBar.css";
 
 const NavBar = (props) => {
   let nav = props.user ? (
@@ -8,7 +9,7 @@ const NavBar = (props) => {
       <Link to="" className="NavBar-link" onClick={props.handleLogout}>
         LOG OUT
       </Link>
-      &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;
       <span className="NavBar-welcome">WELCOME, {props.user.name}</span>
     </div>
   ) : (

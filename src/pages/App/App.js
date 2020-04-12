@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Segment, Menu } from "semantic-ui-react";
+import { Segment, Menu, Header } from "semantic-ui-react";
 import { Link, Route, Switch } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
+import DisplayPage from "../../pages/DisplayPage/DisplayPage";
 import LoginPage from "../LoginPage/LoginPage";
-import NavBar from "../../components/NavBar/NavBar";
+
 import userService from "../../services/userService";
 // import * as quoteAPI from "../services/quotes-api";
 import "./App.css";
@@ -29,13 +30,28 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar handleLogout={this.handleLogout} />
+        <Header size="huge" className="header-footer">
+          G&nbsp;&nbsp;R&nbsp;&nbsp;O&nbsp;&nbsp;W&nbsp;&nbsp;T&nbsp;&nbsp;H
+        </Header>
         <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <DisplayPage
+                user={this.state.user}
+                handleLogout={this.handleLogout}
+              />
+            )}
+          />
           <Route
             exact
             path="/signup"
             render={({ history }) => (
-              <SignupPage history={history} handleSignup={this.handleSignup} />
+              <SignupPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
             )}
           />
 
