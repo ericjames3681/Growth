@@ -30,8 +30,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header size="huge" className="header-footer">
-          G&nbsp;&nbsp;R&nbsp;&nbsp;O&nbsp;&nbsp;W&nbsp;&nbsp;T&nbsp;&nbsp;H
+        <Header size="huge">
+          G&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;&nbsp;&nbsp;&nbsp;H
         </Header>
         <Switch>
           <Route

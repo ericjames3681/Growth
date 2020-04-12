@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  background-image: url("https://imgur.com/rimZIA5.png");
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .App-logo {

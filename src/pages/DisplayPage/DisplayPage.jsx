@@ -5,7 +5,7 @@ import "./DisplayPage.css";
 
 const DisplayPage = (props) => {
   return (
-    <div>
+    <div className="DisplayPage">
       <NavBar user={props.user} handleLogout={props.handleLogout} />
     </div>
   );

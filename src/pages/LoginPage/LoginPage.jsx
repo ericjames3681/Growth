@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button, Divider, Form, Grid, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import userService from "../../services/userService";
 
@@ -30,42 +31,84 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div className="LoginPage">
-        <header className="header-footer">Log In</header>
-        <form className="form-horizontal" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
+      <Segment placeholder>
+        <Grid columns={1} relaxed="very" stackable>
+          <Grid.Column>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Input
+                icon="user"
+                iconPosition="left"
+                label="E M A I L"
                 type="email"
                 className="form-control"
-                placeholder="Email"
-                value={this.state.email}
+                placeholder="E M A I L"
                 name="email"
+                value={this.state.email}
                 onChange={this.handleChange}
               />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12">
-              <input
+              <Form.Input
+                icon="lock"
+                iconPosition="left"
+                label="P A S S W O R D"
                 type="password"
                 className="form-control"
-                placeholder="Password"
-                value={this.state.pw}
+                placeholder="P A S S W O R D"
                 name="pw"
+                value={this.state.pw}
                 onChange={this.handleChange}
               />
-            </div>
-          </div>
-          <div className="form-group">
-            <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Log In</button>
-              &nbsp;&nbsp;&nbsp;
-              <Link to="/">Cancel</Link>
-            </div>
-          </div>
-        </form>
-      </div>
+              <br></br>
+              <Button content="L O G&nbsp;&nbsp;&nbsp;&nbsp;I N" primary />
+            </Form>
+            <br></br>
+            <Link to="/">C A N C E L</Link>
+          </Grid.Column>
+
+          {/* <Grid.Column verticalAlign="middle">
+            <Button content="Sign up" icon="signup" size="big">
+              <Link to="/signup">S I G N&nbsp;&nbsp;&nbsp;&nbsp;U P</Link>
+            </Button>
+          </Grid.Column> */}
+        </Grid>
+
+        {/* <Divider vertical>O&nbsp;&nbsp;R</Divider> */}
+      </Segment>
+      // <div className="LoginPage">
+      //   <header className="header-footer">Log In</header>
+      //   <form className="form-horizontal" onSubmit={this.handleSubmit}>
+      //     <div className="form-group">
+      //       <div className="col-sm-12">
+      //         <input
+      //           type="email"
+      //           className="form-control"
+      //           placeholder="Email"
+      //           value={this.state.email}
+      //           name="email"
+      //           onChange={this.handleChange}
+      //         />
+      //       </div>
+      //     </div>
+      //     <div className="form-group">
+      //       <div className="col-sm-12">
+      //         <input
+      //           type="password"
+      //           className="form-control"
+      //           placeholder="Password"
+      //           value={this.state.pw}
+      //           name="pw"
+      //           onChange={this.handleChange}
+      //         />
+      //       </div>
+      //     </div>
+      //     <div className="form-group">
+      //       <div className="col-sm-12 text-center">
+      //         <button className="btn btn-default">Log In</button>
+      //         &nbsp;&nbsp;&nbsp;
+      //         <Link to="/">Cancel</Link>
+      //       </div>
+      //     </div>
+      //   </form>
+      // </div>
     );
   }
 }
