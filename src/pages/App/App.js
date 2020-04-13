@@ -4,7 +4,8 @@ import { Link, Route, Switch } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import DisplayPage from "../../pages/DisplayPage/DisplayPage";
 import LoginPage from "../LoginPage/LoginPage";
-
+import Form from "../../components/SearchForm/SearchForm";
+import * as plantAPI from "../../services/plants-api";
 import userService from "../../services/userService";
 // import * as quoteAPI from "../services/quotes-api";
 import "./App.css";
@@ -14,10 +15,20 @@ class App extends Component {
     super(props);
     this.state = {
       user: userService.getUser(),
+      plants: [],
     };
   }
+  getPlant(e) {
+    const plantName = e.target.elements.plantName.value;
+    e.preventDefault();
 
-  // async componentDidMount() {}
+    console.log(plantName);
+  }
+
+  async componentDidMount() {
+    const plants = await plantAPI.getAll();
+    this.setState({ plants });
+  }
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -30,9 +41,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header size="huge">
-          G&nbsp;&nbsp;&nbsp;&nbsp;R&nbsp;&nbsp;&nbsp;&nbsp;O&nbsp;&nbsp;&nbsp;&nbsp;W&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;&nbsp;&nbsp;&nbsp;H
+        <br></br>
+        <Header className="App-header" size="huge" inverted>
+          G &nbsp; &nbsp;R &nbsp; &nbsp;O &nbsp; &nbsp;W &nbsp; &nbsp;T &nbsp;
+          &nbsp;H
         </Header>
+        <br></br>
         <Switch>
           <Route
             exact
@@ -41,6 +55,7 @@ class App extends Component {
               <DisplayPage
                 user={this.state.user}
                 handleLogout={this.handleLogout}
+                getPlant={this.getPlant}
               />
             )}
           />

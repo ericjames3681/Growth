@@ -63,52 +63,8 @@ class LoginPage extends Component {
             <br></br>
             <Link to="/">C A N C E L</Link>
           </Grid.Column>
-
-          {/* <Grid.Column verticalAlign="middle">
-            <Button content="Sign up" icon="signup" size="big">
-              <Link to="/signup">S I G N&nbsp;&nbsp;&nbsp;&nbsp;U P</Link>
-            </Button>
-          </Grid.Column> */}
         </Grid>
-
-        {/* <Divider vertical>O&nbsp;&nbsp;R</Divider> */}
       </Segment>
-      // <div className="LoginPage">
-      //   <header className="header-footer">Log In</header>
-      //   <form className="form-horizontal" onSubmit={this.handleSubmit}>
-      //     <div className="form-group">
-      //       <div className="col-sm-12">
-      //         <input
-      //           type="email"
-      //           className="form-control"
-      //           placeholder="Email"
-      //           value={this.state.email}
-      //           name="email"
-      //           onChange={this.handleChange}
-      //         />
-      //       </div>
-      //     </div>
-      //     <div className="form-group">
-      //       <div className="col-sm-12">
-      //         <input
-      //           type="password"
-      //           className="form-control"
-      //           placeholder="Password"
-      //           value={this.state.pw}
-      //           name="pw"
-      //           onChange={this.handleChange}
-      //         />
-      //       </div>
-      //     </div>
-      //     <div className="form-group">
-      //       <div className="col-sm-12 text-center">
-      //         <button className="btn btn-default">Log In</button>
-      //         &nbsp;&nbsp;&nbsp;
-      //         <Link to="/">Cancel</Link>
-      //       </div>
-      //     </div>
-      //   </form>
-      // </div>
     );
   }
 }
