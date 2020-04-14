@@ -16,15 +16,19 @@ class App extends Component {
     super(props);
     this.state = {
       user: userService.getUser(),
-      plantsResults: [],
     };
   }
+
+  // async componentDidMount() {
+  //   const quotes = await quoteAPI.getAll();
+  //   this.setState({ quotes });
+  // }
 
   async componentDidMount() {
     try {
       const response = await getAll();
-      const { data } = JSON.parse(response);
-      console.log(data);
+      const data = await JSON.parse(response);
+      this.setState({ plantResults: data });
     } catch (error) {
       console.log(error);
     }

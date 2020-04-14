@@ -1,11 +1,13 @@
 import React from "react";
-import { Form, Button, Input } from "semantic-ui-react";
+import { Form, Button, Input, Card } from "semantic-ui-react";
 
 const SearchForm = (props) => (
-  <Form onSubmit={props.getPlants}>
-    <Input type="text" name="plantSearch" />
-    <Button>S E A R C H</Button>
-  </Form>
+  <Card>
+    <Form onSubmit={props.getPlants}>
+      <Input type="text" name="plantSearch" />
+      <Button>S E A R C H</Button>
+    </Form>
+  </Card>
 );
 
 export default SearchForm;

@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Button, Form, Grid, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Grid,
+  Card,
+  CardContent,
+  Header,
+} from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import userService from "../../services/userService";
 
@@ -31,40 +38,43 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <Segment placeholder>
-        <Grid columns={1} relaxed="very" stackable>
-          <Grid.Column>
-            <Form onSubmit={this.handleSubmit}>
-              <Form.Input
-                icon="user"
-                iconPosition="left"
-                label="E M A I L"
-                type="email"
-                className="form-control"
-                placeholder="E M A I L"
-                name="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-              <Form.Input
-                icon="lock"
-                iconPosition="left"
-                label="P A S S W O R D"
-                type="password"
-                className="form-control"
-                placeholder="P A S S W O R D"
-                name="pw"
-                value={this.state.pw}
-                onChange={this.handleChange}
-              />
+      <Card centered>
+        <CardContent>
+          <Header>L O G &nbsp; I N</Header>
+          <Grid columns={1} relaxed="very" stackable>
+            <Grid.Column>
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Input
+                  icon="user"
+                  iconPosition="left"
+                  label="E M A I L"
+                  type="email"
+                  className="form-control"
+                  placeholder="E M A I L"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+                <Form.Input
+                  icon="lock"
+                  iconPosition="left"
+                  label="P A S S W O R D"
+                  type="password"
+                  className="form-control"
+                  placeholder="P A S S W O R D"
+                  name="pw"
+                  value={this.state.pw}
+                  onChange={this.handleChange}
+                />
+                <br></br>
+                <Button content="L O G&nbsp;&nbsp;&nbsp;&nbsp;I N" primary />
+              </Form>
               <br></br>
-              <Button content="L O G&nbsp;&nbsp;&nbsp;&nbsp;I N" primary />
-            </Form>
-            <br></br>
-            <Link to="/">C A N C E L</Link>
-          </Grid.Column>
-        </Grid>
-      </Segment>
+              <Link to="/">C A N C E L</Link>
+            </Grid.Column>
+          </Grid>
+        </CardContent>
+      </Card>
     );
   }
 }
