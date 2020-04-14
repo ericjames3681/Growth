@@ -1,9 +1,9 @@
 import React from "react";
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Input } from "semantic-ui-react";
 
 const SearchForm = (props) => (
-  <Form onSubmit={props.getPlant}>
-    <input type="text" name="plantName" />
+  <Form onSubmit={props.getPlants}>
+    <Input type="text" name="plantSearch" />
     <Button>S E A R C H</Button>
   </Form>
 );

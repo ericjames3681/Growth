@@ -1,7 +1,6 @@
 import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import "./DisplayPage.css";
-import SearchForm from "../../components/SearchForm/SearchForm";
 
 const DisplayPage = (props) => {
   return (
@@ -10,9 +9,8 @@ const DisplayPage = (props) => {
       <NavBar
         user={props.user}
         handleLogout={props.handleLogout}
-        getPlant={props.getPlant}
+        getPlants={props.getPlants}
       />
-      <SearchForm getPlant={props.getPlant} />
     </>
   );
 };
