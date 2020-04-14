@@ -16,7 +16,6 @@ const NavBar = (props) => {
       <span className="NavBar-welcome">
         W E L C O M E,&nbsp;{props.user.name}
       </span>
-      <SearchForm getPlant={props.getPlant} />
     </Segment>
   ) : (
     <Segment size="huge">

@@ -4,7 +4,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import DisplayPage from "../../pages/DisplayPage/DisplayPage";
 import LoginPage from "../LoginPage/LoginPage";
-import Form from "../../components/SearchForm/SearchForm";
+import SearchForm from "../../components/SearchForm/SearchForm";
 import * as plantAPI from "../../services/plants-api";
 import userService from "../../services/userService";
 // import * as quoteAPI from "../services/quotes-api";
@@ -18,17 +18,22 @@ class App extends Component {
       plants: [],
     };
   }
-  getPlant(e) {
+  getPlant = async (e) => {
     const plantName = e.target.elements.plantName.value;
     e.preventDefault();
+    const api_call = await fetch(
+      "https://plantsdb.xyz/search/?limit=10&fields=Genus,Species,Common_Name,Image"
+    );
 
-    console.log(plantName);
-  }
+    const data = await api_call.json();
+    this.setState({ plants: data.data });
+    console.log(this.state.plants);
+  };
 
-  async componentDidMount() {
-    const plants = await plantAPI.getAll();
-    this.setState({ plants });
-  }
+  // async componentDidMount() {
+  //   const plants = await plantAPI.getAll();
+  //   this.setState({ plants });
+  // }
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -81,6 +86,14 @@ class App extends Component {
             )}
           />
         </Switch>
+        {this.state.plants.map((plant) => {
+          return (
+            <>
+              <p key={plant.id}> {plant.Species.toUpperCase()} </p>
+              {/* <img key={plant.id} src={plant.image} alt="img" /> */}
+            </>
+          );
+        })}
       </div>
     );
   }
