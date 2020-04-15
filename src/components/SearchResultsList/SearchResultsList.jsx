@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { Card, Button } from "semantic-ui-react";
 
 function SearchResultsList(props) {
   // create that list of jsx
@@ -8,6 +8,7 @@ function SearchResultsList(props) {
       <Card centered key={i}>
         <Card.Content>
           <Card.Header>{plant.scientific_name.toUpperCase()}</Card.Header>
+          <Button primary>A D D</Button>
         </Card.Content>
       </Card>
     );
