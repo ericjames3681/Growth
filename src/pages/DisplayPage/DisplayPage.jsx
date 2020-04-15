@@ -13,7 +13,7 @@ const DisplayPage = (props) => {
         handleLogout={props.handleLogout}
         plantsResults={props.plantsResults}
       />
-      {/* <SearchResultsList plantsResults={props.plantsResults} /> */}
+      <SearchResultsList plantsResults={props.plantsResults} />
     </>
   );
 };

@@ -16,6 +16,7 @@ class App extends Component {
     super(props);
     this.state = {
       user: userService.getUser(),
+      plantsResults: [],
     };
   }
 
@@ -28,7 +29,7 @@ class App extends Component {
     try {
       const response = await getAll();
       const data = await JSON.parse(response);
-      this.setState({ plantsResults: data });
+      this.setState({ plantsResults: [...this.state.plantsResults, ...data] });
       console.log(this.state.plantsResults);
     } catch (error) {
       console.log(error);
@@ -47,7 +48,7 @@ class App extends Component {
     return (
       <div className="App">
         <br></br>
-        <Header className="App-header" size="huge" inverted>
+        <Header centered className="App-header" size="huge" inverted>
           G &nbsp; &nbsp;R &nbsp; &nbsp;O &nbsp; &nbsp;W &nbsp; &nbsp;T &nbsp;
           &nbsp;H
         </Header>
@@ -60,14 +61,12 @@ class App extends Component {
               <DisplayPage
                 user={this.state.user}
                 handleLogout={this.handleLogout}
-                plantsResults={this.plantsResults}
+                plantsResults={this.state.plantsResults}
                 getPlants={this.getPlants}
               />
             )}
           />
-          {/* {this.state.plantsResults.map((plant) => {
-            return <p>{plant}</p>;
-          })} */}
+
           <Route
             exact
             path="/signup"
@@ -90,6 +89,13 @@ class App extends Component {
             )}
           />
         </Switch>
+        {/* {this.state.plantsResults.map((data, i) => {
+          return (
+            <ul key={i}>
+              <li> {data.scientific_name} </li>
+            </ul>
+          );
+        })} */}
       </div>
     );
   }

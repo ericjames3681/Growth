@@ -5,10 +5,9 @@ function SearchResultsList(props) {
   // create that list of jsx
   const plants = props.plantsResults.map((plant, i) => {
     return (
-      <Card key={i}>
+      <Card centered key={i}>
         <Card.Content>
-          <Card.Header>{plant.id}</Card.Header>
-          <Card.Description>DESCRIPTION</Card.Description>
+          <Card.Header>{plant.scientific_name.toUpperCase()}</Card.Header>
         </Card.Content>
       </Card>
     );
