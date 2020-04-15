@@ -5,7 +5,7 @@ import SignupPage from "../SignupPage/SignupPage";
 import DisplayPage from "../DisplayPage/DisplayPage";
 import LoginPage from "../LoginPage/LoginPage";
 import SearchForm from "../../components/SearchForm/SearchForm";
-// import SearchResultsList from "../../components/SearchResultsList/SearchResultsList";
+import SearchResultsList from "../../components/SearchResultsList/SearchResultsList";
 // import * as plantAPI from "../../services/plants-api";
 import userService from "../../services/userService";
 import { getAll } from "../../services/plants-api-service";
@@ -28,7 +28,7 @@ class App extends Component {
     try {
       const response = await getAll();
       const data = await JSON.parse(response);
-      this.setState({ plantResults: data });
+      this.setState({ plantsResults: data });
     } catch (error) {
       console.log(error);
     }
@@ -86,14 +86,6 @@ class App extends Component {
             )}
           />
         </Switch>
-        {/* {this.state.plants.map((plant) => {
-          return (
-            <>
-            <p key={plant.id}> {plant.Species.toUpperCase()} </p>
-            {/* <img key={plant.id} src={plant.image} alt="img" /> */}
-        {/* </>
-        ); })} */} */}
-        {/* <SearchForm getPlants={this.getPlants} /> */}
       </div>
     );
   }

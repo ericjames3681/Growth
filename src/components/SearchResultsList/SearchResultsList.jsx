@@ -7,7 +7,7 @@ function SearchResultsList(props) {
     return (
       <Card key={i}>
         <Card.Content>
-          <Card.Header>{plant.Species}</Card.Header>
+          <Card.Header>{plant.id}</Card.Header>
           <Card.Description>DESCRIPTION</Card.Description>
         </Card.Content>
       </Card>

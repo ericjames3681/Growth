@@ -1,6 +1,8 @@
 import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import "./DisplayPage.css";
+import SearchResultsList from "../../components/SearchResultsList/SearchResultsList";
+import { SearchResults } from "semantic-ui-react";
 
 const DisplayPage = (props) => {
   return (
@@ -9,8 +11,9 @@ const DisplayPage = (props) => {
       <NavBar
         user={props.user}
         handleLogout={props.handleLogout}
-        getPlants={props.getPlants}
+        plantsResults={props.plantsResults}
       />
+      {/* <SearchResultsList plantsResults={props.plantsResults} /> */}
     </>
   );
 };

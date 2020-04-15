@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SignupForm from "../../components/SignupForm/SignupForm";
+import { Header } from "semantic-ui-react";
 
 class SignupPage extends Component {
   constructor(props) {
@@ -13,9 +14,11 @@ class SignupPage extends Component {
 
   render() {
     return (
-      <div className="SignupPage">
+      <div>
         <SignupForm {...this.props} updateMessage={this.updateMessage} />
-        <p>{this.state.message}</p>
+        <Header as="h1" color="red">
+          {this.state.message}
+        </Header>
       </div>
     );
   }
