@@ -4,11 +4,11 @@ import { Route, Switch } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import DisplayPage from "../DisplayPage/DisplayPage";
 import LoginPage from "../LoginPage/LoginPage";
-import SearchForm from "../../components/SearchForm/SearchForm";
+
 import SearchResultsList from "../../components/SearchResultsList/SearchResultsList";
 // import * as plantAPI from "../../services/plants-api";
 import userService from "../../services/userService";
-import { getAll } from "../../services/plants-api-service";
+import { getAll, findOne } from "../../services/plants-api-service";
 import "./App.css";
 
 class App extends Component {
@@ -17,13 +17,9 @@ class App extends Component {
     this.state = {
       user: userService.getUser(),
       plantsResults: [],
+      searchTerm: [],
     };
   }
-
-  // async componentDidMount() {
-  //   const quotes = await quoteAPI.getAll();
-  //   this.setState({ quotes });
-  // }
 
   async componentDidMount() {
     try {
@@ -35,6 +31,17 @@ class App extends Component {
       console.log(error);
     }
   }
+
+  handleSearch = async (term) => {
+    try {
+      const response = await findOne(term);
+      const newPlant = await JSON.parse(response);
+      this.setState({ searchTerm: newPlant });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
@@ -48,7 +55,7 @@ class App extends Component {
     return (
       <div className="App">
         <br></br>
-        <Header centered className="App-header" size="huge" inverted>
+        <Header centered="true" className="App-header" size="huge" inverted>
           G &nbsp; &nbsp;R &nbsp; &nbsp;O &nbsp; &nbsp;W &nbsp; &nbsp;T &nbsp;
           &nbsp;H
         </Header>
@@ -61,8 +68,8 @@ class App extends Component {
               <DisplayPage
                 user={this.state.user}
                 handleLogout={this.handleLogout}
-                plantsResults={this.state.plantsResults}
-                getPlants={this.getPlants}
+                searchTerm={this.state.searchTerm}
+                handleSearch={this.handleSearch}
               />
             )}
           />

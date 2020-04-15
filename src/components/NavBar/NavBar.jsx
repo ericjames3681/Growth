@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Header, Card, CardContent } from "semantic-ui-react";
 import "./NavBar.css";
-import SearchForm from "../../components/SearchForm/SearchForm";
 
 const NavBar = (props) => {
   let nav = props.user ? (
