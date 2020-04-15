@@ -17,16 +17,16 @@ class SearchBar extends Component {
       <Form
         onSubmit={(e) => {
           e.preventDefault();
-          this.props.getPlants(this.state.plantSearch);
+          this.props.getPlants(this.state.searchTerm);
         }}
       >
         <Form.Input
           type="text"
-          name="plantSearch"
-          value={this.state.plantSearch}
+          name="searchTerm"
+          value={this.state.searchTerm}
           onChange={this.handleChange}
         />
-        <Button>S E A R C H</Button>
+        <Button primary>S E A R C H</Button>
       </Form>
     );
   }

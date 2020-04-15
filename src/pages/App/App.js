@@ -29,6 +29,7 @@ class App extends Component {
       const response = await getAll();
       const data = await JSON.parse(response);
       this.setState({ plantsResults: data });
+      console.log(this.state.plantsResults);
     } catch (error) {
       console.log(error);
     }
@@ -64,6 +65,9 @@ class App extends Component {
               />
             )}
           />
+          {/* {this.state.plantsResults.map((plant) => {
+            return <p>{plant}</p>;
+          })} */}
           <Route
             exact
             path="/signup"
