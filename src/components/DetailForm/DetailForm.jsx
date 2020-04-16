@@ -2,9 +2,9 @@ import React from "react";
 import { Card, Header } from "semantic-ui-react";
 
 const DetailForm = (props) => {
-  let detail = props.plantId ? (
+  let detail = this.props.plantId ? (
     <Card.Content>
-      <Header>{plantId.scientific_name}</Header>
+      <Header>{props.plantId.scientific_name}</Header>
     </Card.Content>
   ) : (
     <Card.Content>
