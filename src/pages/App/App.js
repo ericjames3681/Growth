@@ -8,7 +8,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import SearchResultsList from "../../components/SearchResultsList/SearchResultsList";
 // import * as plantAPI from "../../services/plants-api";
 import userService from "../../services/userService";
-import { getAll, findOne } from "../../services/plants-api-service";
+import { findOne, findId } from "../../services/plants-api-service";
 import "./App.css";
 
 class App extends Component {
@@ -16,20 +16,9 @@ class App extends Component {
     super(props);
     this.state = {
       user: userService.getUser(),
-      plantsResults: [],
       searchTerm: [],
+      plantId: "",
     };
-  }
-
-  async componentDidMount() {
-    try {
-      const response = await getAll();
-      const data = await JSON.parse(response);
-      this.setState({ plantsResults: [...this.state.plantsResults, ...data] });
-      console.log(this.state.plantsResults);
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   handleSearch = async (term) => {
@@ -37,6 +26,16 @@ class App extends Component {
       const response = await findOne(term);
       const newPlant = await JSON.parse(response);
       this.setState({ searchTerm: newPlant });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  handleID = async (id) => {
+    try {
+      const response = await findId(id);
+      const detailId = await JSON.parse(response);
+      this.setState({ plantId: detailId });
     } catch (error) {
       console.log(error);
     }
@@ -70,6 +69,8 @@ class App extends Component {
                 handleLogout={this.handleLogout}
                 searchTerm={this.state.searchTerm}
                 handleSearch={this.handleSearch}
+                handleID={this.handleID}
+                plantId={this.state.plantId}
               />
             )}
           />
@@ -96,13 +97,6 @@ class App extends Component {
             )}
           />
         </Switch>
-        {/* {this.state.plantsResults.map((data, i) => {
-          return (
-            <ul key={i}>
-              <li> {data.scientific_name} </li>
-            </ul>
-          );
-        })} */}
       </div>
     );
   }

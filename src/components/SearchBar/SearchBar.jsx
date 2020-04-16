@@ -15,7 +15,7 @@ class SearchBar extends Component {
   render() {
     return (
       <Form
-        centered
+        centered="true"
         onSubmit={(e) => {
           e.preventDefault();
           this.props.handleSearch(this.state.searchTerm);

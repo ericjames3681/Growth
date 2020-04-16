@@ -9,3 +9,7 @@ export function findOne(searchTerm) {
     res.json()
   );
 }
+
+export function findId(id) {
+  return fetch(BASE_URL + "/detail?id=" + id).then((res) => res.json());
+}
