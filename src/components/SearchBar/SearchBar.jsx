@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Input } from "semantic-ui-react";
 
 class SearchBar extends Component {
   constructor() {
@@ -21,12 +21,17 @@ class SearchBar extends Component {
           this.props.handleSearch(this.state.searchTerm);
         }}
       >
-        <Form.Input
+        <Input
+          icon="search"
+          placeholder="S E A R C H . . ."
           type="text"
           name="searchTerm"
           value={this.state.searchTerm}
           onChange={this.handleChange}
         />
+        <br></br>
+        <br></br>
+        <br></br>
         <Button primary>S E A R C H</Button>
       </Form>
     );

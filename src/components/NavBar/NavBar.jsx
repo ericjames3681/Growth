@@ -5,17 +5,21 @@ import "./NavBar.css";
 
 const NavBar = (props) => {
   let nav = props.user ? (
-    <CardContent size="large">
+    <CardContent>
       <Header as="p" color="red">
-        W E L C O M E : {props.user.name}
+        W E L C O M E : {props.user.name.toUpperCase()}
       </Header>
       <hr></hr>
       <Link to="" onClick={props.handleLogout}>
         L O G &nbsp; O U T
       </Link>
+      &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp;
+      <Link to="" onClick={props.handleLogout}>
+        M Y &nbsp; P L A N T S
+      </Link>
     </CardContent>
   ) : (
-    <CardContent size="large">
+    <CardContent>
       <Link to="/login">L O G &nbsp; I N</Link>
       &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp;
       <Link to="/signup">S I G N &nbsp; U P</Link>
@@ -23,7 +27,7 @@ const NavBar = (props) => {
   );
 
   return (
-    <Card size="huge" centered>
+    <Card size="massive" centered>
       {nav}
     </Card>
   );

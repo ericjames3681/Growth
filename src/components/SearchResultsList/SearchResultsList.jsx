@@ -61,7 +61,6 @@ class SearchResultsList extends Component {
 
     return (
       <React.Fragment>
-        <h1>L I S T</h1>
         <List>{plants}</List>
       </React.Fragment>
     );

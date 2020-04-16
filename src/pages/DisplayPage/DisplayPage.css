@@ -5,3 +5,8 @@
   background-size: "cover";
   background-repeat: "no-repeat";
 }
+
+h1,
+h3 {
+  color: greenyellow;
+}
