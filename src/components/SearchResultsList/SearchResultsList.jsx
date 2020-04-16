@@ -9,7 +9,6 @@ import {
   Image,
   Divider,
 } from "semantic-ui-react";
-import DetailPage from "../../pages/DetailPage/DetailPage";
 import { Link } from "react-router-dom";
 
 class SearchResultsList extends Component {
