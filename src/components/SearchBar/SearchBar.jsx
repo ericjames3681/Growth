@@ -31,8 +31,9 @@ class SearchBar extends Component {
         />
         <br></br>
         <br></br>
+        <Button color="green">S E A R C H</Button>
         <br></br>
-        <Button primary>S E A R C H</Button>
+        <br></br>
       </Form>
     );
   }
