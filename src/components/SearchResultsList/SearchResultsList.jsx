@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
   Card,
   Button,
-  Message,
+  Responsive,
   Modal,
   Header,
   Icon,
@@ -12,14 +12,19 @@ import {
 
 class SearchResultsList extends Component {
   render() {
-    const name = this.props.plantId.common_name;
+    const user = this.props.user;
+    const name = this.props.searchTerm.common_name;
     const plants = this.props.searchTerm.map((plant, i) => {
       return (
         <Card key={i}>
           <Card.Content>
-            <Card.Header>{plant.common_name}</Card.Header>
-            <p>{plant.scientific_name.toUpperCase()}</p>
+            {name ? (
+              <Header content={plant.common_name} />
+            ) : (
+              <Header content={plant.scientific_name} />
+            )}
             <Modal
+              className="Modal"
               trigger={
                 <Button
                   color="green"
@@ -47,7 +52,7 @@ class SearchResultsList extends Component {
                   ) : (
                     <Image
                       src="https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg"
-                      size="medium"
+                      size="small"
                     />
                   )}
                 </div>
@@ -57,11 +62,15 @@ class SearchResultsList extends Component {
                 <p>DURATION:{this.props.plantId.duration}</p>
                 <p>FAMILY:{this.props.plantId.family_common_name}</p>
               </Modal.Content>
-              <Modal.Actions>
-                <Button color="green">
-                  <Icon name="plus" /> A D D
-                </Button>
-              </Modal.Actions>
+              {user ? (
+                <Modal.Actions>
+                  <Button color="green">
+                    <Icon name="plus" /> A D D
+                  </Button>
+                </Modal.Actions>
+              ) : (
+                <></>
+              )}
             </Modal>
           </Card.Content>
         </Card>
@@ -70,7 +79,9 @@ class SearchResultsList extends Component {
 
     return (
       <React.Fragment>
-        <Card.Group>{plants}</Card.Group>
+        <Responsive centered as={Card.Group}>
+          {plants}
+        </Responsive>
       </React.Fragment>
     );
   }

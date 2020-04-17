@@ -17,6 +17,7 @@ const DisplayPage = (props) => {
       <br></br>
       <SearchBar handleSearch={props.handleSearch} />
       <SearchResultsList
+        user={props.user}
         searchTerm={props.searchTerm}
         handleID={props.handleID}
         plantId={props.plantId}
