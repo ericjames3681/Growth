@@ -1,13 +1,20 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6;
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
   {
-    name: String,
+    name: { type: String, required: true },
     email: { type: String, required: true, lowercase: true, unique: true },
-    password: String,
+    password: { type: String, required: true },
+    garden: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Plant",
+      },
+    ],
   },
   {
     timestamps: true,

@@ -13,9 +13,9 @@ const NavBar = (props) => {
       <Link to="" onClick={props.handleLogout}>
         L O G &nbsp; O U T
       </Link>
-      &nbsp; &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp; &nbsp;
-      <Link to="" onClick={props.handleLogout}>
-        M Y &nbsp; P L A N T S
+      &nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+      <Link to="/garden" onClick={props.handleGarden}>
+        M Y &nbsp; G A R D E N
       </Link>
     </CardContent>
   ) : (

@@ -5,6 +5,7 @@ const SECRET = process.env.SECRET;
 module.exports = {
   signup,
   login,
+  // garden,
 };
 
 async function signup(req, res) {

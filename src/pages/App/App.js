@@ -5,6 +5,7 @@ import SignupPage from "../SignupPage/SignupPage";
 import DisplayPage from "../DisplayPage/DisplayPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../services/userService";
+import plantsService from "../../services/plantsService";
 import { findOne, findId } from "../../services/plants-api-service";
 import "./App.css";
 
@@ -15,6 +16,7 @@ class App extends Component {
       user: userService.getUser(),
       searchTerm: [],
       plantId: "",
+      garden: plantsService.index(),
     };
   }
 
@@ -43,6 +45,11 @@ class App extends Component {
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
+  };
+
+  handleGarden = () => {
+    plantsService.index();
+    this.setState({ garden: plantsService.index() });
   };
 
   handleSignupOrLogin = () => {

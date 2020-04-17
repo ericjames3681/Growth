@@ -7,5 +7,6 @@ router.post("/signup", usersCtrl.signup);
 router.post("/login", usersCtrl.login);
 
 /*---------- Protected Routes ----------*/
+router.post("/garden"), usersCtrl.garden;
 
 module.exports = router;
