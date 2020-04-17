@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Form, Header, Card, CardContent } from "semantic-ui-react";
+import { Header, Card, CardContent } from "semantic-ui-react";
 import "./NavBar.css";
 
 const NavBar = (props) => {
