@@ -1,10 +1,11 @@
 import tokenService from "./tokenService";
 
-const BASE_URL = "/api/lists/";
+const BASE_URL = "/api/lists/garden";
 
 export default {
   index,
   create,
+  deleteOne,
 };
 
 function index() {
@@ -27,4 +28,14 @@ function create(plant) {
     body: JSON.stringify(plant),
   };
   return fetch(BASE_URL, options).then((res) => res.json());
+}
+
+function deleteOne(id) {
+  const options = {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + tokenService.getToken(),
+    },
+  };
+  return fetch(BASE_URL + "/" + id, options).then((res) => res.json());
 }

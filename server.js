@@ -16,11 +16,10 @@ app.use(express.static(path.join(__dirname, "build")));
 
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/plants", require("./routes/api/plants-api-routes"));
-// app.use("/api/lists", require("./routes/api/lists"));
 app.use(require("./config/auth"));
+// app.use("/api/lists", require("./routes/api/lists"));
 
 app.get("/*", function (req, res) {
-  z;
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 

@@ -3,14 +3,16 @@ const jwt = require("jsonwebtoken");
 
 module.exports = {
   create,
-  index,
   delete: deleteOne,
-  update,
+  //   update,
+  index,
 };
 
 async function index(req, res) {
-  const plant = await Plant.find({});
-  res.status(200).json(plant);
+  console.log("user: ", req.user);
+  const plants = await Plant.find({});
+
+  res.json(plants);
 }
 
 async function create(req, res) {
@@ -23,9 +25,9 @@ async function deleteOne(req, res) {
   res.status(200).json(deletedPlant);
 }
 
-async function update(req, res) {
-  const updatedPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
-  res.status(200).json(updatedPlant);
-}
+// async function update(req, res) {
+//   const updatedPlant = await Plant.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true,
+//   });
+//   res.status(200).json(updatedPlant);
+// }

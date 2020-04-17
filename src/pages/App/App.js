@@ -40,21 +40,33 @@ class App extends Component {
     }
   };
 
-  handleAddPlant = () => {};
+  handleAddPlant = async (id) => {
+    const newPlant = await plantsService.create(id);
+    console.log(newPlant);
+    // this.setState
+  };
 
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
   };
 
-  handleGarden = () => {
-    plantsService.index();
-    this.setState({ garden: plantsService.index() });
+  handleGarden = async () => {
+    const data = await plantsService.index();
+    console.log(data);
+    // this.setState({ garden: data });
   };
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
   };
+
+  //call handleGarden inside DidMount, check if user
+  componentDidMount() {
+    if (userService.getUser()) {
+      this.handleGarden();
+    }
+  }
 
   render() {
     return (
@@ -77,6 +89,8 @@ class App extends Component {
                 handleSearch={this.handleSearch}
                 handleID={this.handleID}
                 plantId={this.state.plantId}
+                handleGarden={this.handleGarden}
+                handleAddPlant={this.handleAddPlant}
               />
             )}
           />

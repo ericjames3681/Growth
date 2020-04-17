@@ -11,6 +11,7 @@ const plantSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    wateredOn: Date,
   },
   {
     timestamps: true,

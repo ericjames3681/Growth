@@ -6,9 +6,9 @@ const plantsCtrl = require("../../controllers/plants");
 // Process the token for only the routes below
 // will check to see if req.user is defined. if true, it will send to controllers below
 router.use(require("../../config/auth"));
-router.post("/", plantsCtrl.create);
-router.get("/", plantsCtrl.index);
-router.get("/:id", plantsCtrl.delete);
+router.post("/garden", checkAuth, plantsCtrl.create);
+router.get("/garden", checkAuth, plantsCtrl.index);
+router.delete("/garden/:id", checkAuth, plantsCtrl.delete);
 
 function checkAuth(req, res, next) {
   if (req.user) return next();

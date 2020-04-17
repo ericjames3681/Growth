@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Card } from "semantic-ui-react";
 import plantsService from "../../services/plantsService";
 
 class GardenPage extends Component {
-  async componentDidMount() {
-    const userPlants = await plantsService.index();
-    this.props.handleUpdatePlants(userPlants);
-  }
+  //   async componentDidMount() {
+  //     const userPlants = await plantsService.index();
+  //     this.props.handleUpdatePlants(userPlants);
+  //   }
 
   render() {
-    <>
-      <h1>G A R D E N</h1>
-    </>;
+    <Card>
+      <CardContent>
+        <h1>MY PLANTS</h1>
+      </CardContent>
+    </Card>;
   }
 }
 export default GardenPage;

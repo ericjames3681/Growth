@@ -4,6 +4,7 @@ import {
   Form,
   Grid,
   Card,
+  Modal,
   CardContent,
   Header,
 } from "semantic-ui-react";
@@ -26,9 +27,9 @@ class LoginPage extends Component {
     e.preventDefault();
     try {
       await userService.login(this.state);
-      // Let <App> know a user has signed up!
+
       this.props.handleSignupOrLogin();
-      // Successfully signed up - show GamePage
+
       this.props.history.push("/");
     } catch (err) {
       // Use a modal or toast in your apps instead of alert
@@ -67,7 +68,10 @@ class LoginPage extends Component {
                   onChange={this.handleChange}
                 />
                 <br></br>
-                <Button content="L O G&nbsp;&nbsp;&nbsp;&nbsp;I N" primary />
+                <Button
+                  content="L O G&nbsp;&nbsp;&nbsp;&nbsp;I N"
+                  color="green"
+                />
               </Form>
               <br></br>
               <Link to="/">C A N C E L</Link>

@@ -44,7 +44,6 @@ const SearchResultsList = (props) => {
               <Header content={props.plantId.scientific_name} />
             )}
             <Modal.Content>
-              <Divider />
               {props.plantId.images && props.plantId.images.length ? (
                 <Image src={props.plantId.images[0].url} size="big" />
               ) : (
@@ -54,7 +53,6 @@ const SearchResultsList = (props) => {
                 />
               )}
 
-              <Divider />
               <strong>NAME: {props.plantId.scientific_name}</strong>
               <br />
               <strong>DURATION: {props.plantId.duration}</strong>
@@ -66,7 +64,7 @@ const SearchResultsList = (props) => {
             </Modal.Content>
             {user ? (
               <Modal.Actions>
-                <Button color="green">
+                <Button color="green" onClick={() => props.handleAddPlant}>
                   <Icon name="plus" /> A D D
                 </Button>
               </Modal.Actions>
