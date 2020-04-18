@@ -4,9 +4,9 @@ import { Route, Switch } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import DisplayPage from "../DisplayPage/DisplayPage";
 import LoginPage from "../LoginPage/LoginPage";
+// import GardenPage from "../GardenPage/GardenPage";
 import userService from "../../services/userService";
-import plantsService from "../../services/plantsService";
-import { findOne, findId } from "../../services/plants-api-service";
+import * as plantsAPI from "../../services/plants-api-service";
 import "./App.css";
 
 class App extends Component {
@@ -16,13 +16,13 @@ class App extends Component {
       user: userService.getUser(),
       searchTerm: [],
       plantId: "",
-      garden: plantsService.index(),
+      garden: [],
     };
   }
 
   handleSearch = async (term) => {
     try {
-      const response = await findOne(term);
+      const response = await plantsAPI.findOne(term);
       const newPlant = await JSON.parse(response);
       this.setState({ searchTerm: newPlant });
     } catch (error) {
@@ -32,7 +32,7 @@ class App extends Component {
 
   handleID = async (id) => {
     try {
-      const response = await findId(id);
+      const response = await plantsAPI.findId(id);
       const detailId = await JSON.parse(response);
       this.setState({ plantId: detailId });
     } catch (error) {
@@ -41,7 +41,7 @@ class App extends Component {
   };
 
   handleAddPlant = async (id) => {
-    const newPlant = await plantsService.create(id);
+    const newPlant = await plantsAPI.create(id);
     console.log(newPlant);
     // this.setState
   };
@@ -52,7 +52,7 @@ class App extends Component {
   };
 
   handleGarden = async () => {
-    const data = await plantsService.index();
+    const data = await plantsAPI.index();
     console.log(data);
     // this.setState({ garden: data });
   };

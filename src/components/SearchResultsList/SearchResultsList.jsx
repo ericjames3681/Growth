@@ -59,12 +59,14 @@ const SearchResultsList = (props) => {
               <br />
               <strong>FAMILY: {props.plantId.family_common_name}</strong>
               <br />
-              {/* <strong>GENUS:{props.plantId.genus}</strong> */}
               <Divider />
             </Modal.Content>
             {user ? (
               <Modal.Actions>
-                <Button color="green" onClick={() => props.handleAddPlant}>
+                <Button
+                  color="green"
+                  onClick={() => props.handleAddPlant(props.plantId.id)}
+                >
                   <Icon name="plus" /> A D D
                 </Button>
               </Modal.Actions>

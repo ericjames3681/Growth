@@ -7,11 +7,13 @@ const plantSchema = new Schema(
     sci_name: String,
     duration: String,
     img: String,
-    ownedBy: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
     wateredOn: Date,
+    ownedBy: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   {
     timestamps: true,

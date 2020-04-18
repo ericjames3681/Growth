@@ -1,5 +1,4 @@
 const Plant = require("../models/plant");
-const jwt = require("jsonwebtoken");
 
 module.exports = {
   create,
@@ -10,14 +9,23 @@ module.exports = {
 
 async function index(req, res) {
   console.log("user: ", req.user);
-  const plants = await Plant.find({});
-
-  res.json(plants);
+  try {
+    const plants = await Plant.find(req.user.garden[{}]);
+    res.json(plants);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 }
 
 async function create(req, res) {
-  const plant = await Plant.create(req.body);
-  res.status(201).json(plant);
+  console.log(req.body);
+  try {
+    const plant = await Plant.create(req.body);
+    await plant.save();
+    res.json(plant);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 }
 
 async function deleteOne(req, res) {
