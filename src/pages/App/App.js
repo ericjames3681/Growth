@@ -74,6 +74,8 @@ class App extends Component {
       }),
       () => this.props.history.push("/garden")
     );
+    const data = await plantsAPI.index();
+    this.setState({ garden: data });
   }
   componentDidMount() {
     if (userService.getUser()) {

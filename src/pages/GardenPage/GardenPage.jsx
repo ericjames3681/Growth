@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import { Card, CardContent, Responsive, Grid } from "semantic-ui-react";
+import { Card, CardContent, Responsive } from "semantic-ui-react";
 
 import UserPlants from "../../components/UserPlants/UserPlants";
 import * as plantsAPI from "../../services/plants-api-service";
@@ -32,6 +32,7 @@ class GardenPage extends Component {
               garden={this.props.garden}
               plant={plant}
               handleDeletePlant={this.props.handleDeletePlant}
+              handleGarden={this.props.handleGarden}
             />
 
           ))}
