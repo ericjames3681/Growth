@@ -58,7 +58,7 @@ class App extends Component {
 
   handleGarden = async () => {
     const data = await plantsAPI.index();
-    console.log(data);
+
     this.setState({ garden: data });
   };
 

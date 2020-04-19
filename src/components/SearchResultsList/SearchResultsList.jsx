@@ -20,10 +20,11 @@ const SearchResultsList = (props) => {
           {name ? (
             <Header content={plant.common_name} />
           ) : (
-            <Header content={plant.scientific_name} />
-          )}
+              <Header content={plant.scientific_name} />
+            )}
           <Modal
             className="Modal"
+
             trigger={
               <Button
                 color="green"
@@ -41,17 +42,17 @@ const SearchResultsList = (props) => {
             {name ? (
               <Header content={props.plantId.common_name} />
             ) : (
-              <Header content={props.plantId.scientific_name} />
-            )}
+                <Header content={props.plantId.scientific_name} />
+              )}
             <Modal.Content>
               {props.plantId.images && props.plantId.images.length ? (
                 <Image src={props.plantId.images[0].url} size="big" />
               ) : (
-                <Image
-                  src="https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg"
-                  size="small"
-                />
-              )}
+                  <Image
+                    src="https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg"
+                    size="small"
+                  />
+                )}
 
               <strong>NAME: {props.plantId.scientific_name}</strong>
               <br />
@@ -63,24 +64,45 @@ const SearchResultsList = (props) => {
             </Modal.Content>
             {user ? (
               <Modal.Actions>
-                <Button
-                  color="green"
-                  onClick={() =>
-                    props.handleAddPlant({
-                      name: props.plantId.common_name,
-                      sci_name: props.plantId.scientific_name,
-                      duration: props.plantId.duration,
-                      family: props.plantId.family_common_name,
-                      img: props.plantId.images[0].url,
-                    })
-                  }
-                >
-                  <Icon name="plus" /> A D D
-                </Button>
+                {props.plantId.images && props.plantId.images.length ? (
+                  <Button
+                    color="green"
+                    onClick={() =>
+                      props.handleAddPlant({
+                        name: props.plantId.common_name,
+                        sci_name: props.plantId.scientific_name,
+                        duration: props.plantId.duration,
+                        family: props.plantId.family_common_name,
+                        img: props.plantId.images[0].url,
+                      })
+                    }
+                  >
+
+                    <Icon name="plus" /> A D D
+                  </Button>
+
+                ) : (
+                    <Button
+                      color="green"
+                      onClick={() =>
+                        props.handleAddPlant({
+                          name: props.plantId.common_name,
+                          sci_name: props.plantId.scientific_name,
+                          duration: props.plantId.duration,
+                          family: props.plantId.family_common_name,
+                          img: "https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg"
+                        })
+                      }
+                    >
+
+                      <Icon name="plus" /> A D D
+                    </Button>
+                  )}
+
               </Modal.Actions>
             ) : (
-              <></>
-            )}
+                <></>
+              )}
           </Modal>
         </Card.Content>
       </Card>

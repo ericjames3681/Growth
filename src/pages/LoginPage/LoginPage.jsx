@@ -4,7 +4,6 @@ import {
   Form,
   Grid,
   Card,
-  Modal,
   CardContent,
   Header,
 } from "semantic-ui-react";

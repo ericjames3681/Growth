@@ -1,12 +1,12 @@
 import React from "react";
-import { Header, Card, CardContent, Image } from 'semantic-ui-react'
+import { Header, Card, CardContent, Image, Divider } from 'semantic-ui-react'
 
 
 const UserPlants = ({ plant }) => {
     const name = plant.common_name;
     return (
 
-        <Card >
+        <Card size="large">
             <CardContent>
                 {name ? (
                     <Header content={plant.name} />
@@ -21,10 +21,14 @@ const UserPlants = ({ plant }) => {
                             size="small"
                         />
                     )}
+                <Divider />
+                <h3>S C I E N T I F I C &nbsp; N A M E</h3>
                 <strong>{plant.sci_name}</strong>
                 <br />
+                <h3>D U R A T I O N</h3>
                 <strong>{plant.duration}</strong>
                 <br />
+                <h3>F A M I L Y</h3>
                 <strong>{plant.family_common_name}</strong>
 
 

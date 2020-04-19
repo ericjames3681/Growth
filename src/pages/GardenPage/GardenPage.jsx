@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import NavBar from "../../components/NavBar/NavBar";
+
 import { Link } from "react-router-dom";
 import { Card, CardContent, Responsive } from "semantic-ui-react";
-import userService from "../../services/userService";
+
 import UserPlants from "../../components/UserPlants/UserPlants";
 import * as plantsAPI from "../../services/plants-api-service";
 
@@ -10,7 +10,7 @@ import * as plantsAPI from "../../services/plants-api-service";
 class GardenPage extends Component {
   async componentDidMount() {
     const userPlants = await plantsAPI.index();
-    console.log(userPlants)
+
     this.props.handleGarden(userPlants);
 
   }
@@ -26,6 +26,7 @@ class GardenPage extends Component {
           </CardContent>
         </Card>
         {this.props.garden.map((plant, idx) => (
+
           <Responsive centered as={Card.Group} key={idx}>
             <UserPlants key={idx}
               garden={this.props.garden}

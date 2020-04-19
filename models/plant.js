@@ -7,8 +7,10 @@ const plantSchema = new Schema(
     sci_name: String,
     duration: String,
     family: String,
-    img: String,
-    // wateredOn: Date,
+    img: {
+      type: String,
+      default: "https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg",
+    },
     owners: [
       {
         type: Schema.Types.ObjectId,
