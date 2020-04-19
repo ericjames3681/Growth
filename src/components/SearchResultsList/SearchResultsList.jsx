@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Card,
   Button,
@@ -65,7 +65,15 @@ const SearchResultsList = (props) => {
               <Modal.Actions>
                 <Button
                   color="green"
-                  onClick={() => props.handleAddPlant(props.plantId.id)}
+                  onClick={() =>
+                    props.handleAddPlant({
+                      name: props.plantId.common_name,
+                      sci_name: props.plantId.scientific_name,
+                      duration: props.plantId.duration,
+                      family: props.plantId.family_common_name,
+                      img: props.plantId.images[0].url,
+                    })
+                  }
                 >
                   <Icon name="plus" /> A D D
                 </Button>

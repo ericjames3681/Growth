@@ -6,9 +6,10 @@ const plantSchema = new Schema(
     name: String,
     sci_name: String,
     duration: String,
+    family: String,
     img: String,
-    wateredOn: Date,
-    ownedBy: [
+    // wateredOn: Date,
+    owners: [
       {
         type: Schema.Types.ObjectId,
         ref: "User",

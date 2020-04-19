@@ -40,10 +40,15 @@ class App extends Component {
     }
   };
 
-  handleAddPlant = async (id) => {
-    const newPlant = await plantsAPI.create(id);
-    console.log(newPlant);
-    // this.setState
+  handleAddPlant = async (newPlantData) => {
+    const newPlant = await plantsAPI.create(newPlantData);
+    this.setState(
+      (state) => ({
+        garden: [...state.garden, newPlant],
+      }),
+
+      () => this.props.history.push("/")
+    );
   };
 
   handleLogout = () => {
@@ -54,7 +59,7 @@ class App extends Component {
   handleGarden = async () => {
     const data = await plantsAPI.index();
     console.log(data);
-    // this.setState({ garden: data });
+    this.setState({ garden: data });
   };
 
   handleSignupOrLogin = () => {

@@ -1,4 +1,5 @@
 const Plant = require("../models/plant");
+const User = require("../models/user");
 
 module.exports = {
   create,
@@ -8,21 +9,23 @@ module.exports = {
 };
 
 async function index(req, res) {
-  console.log("user: ", req.user);
+  console.log(req.user);
   try {
-    const plants = await Plant.find(req.user.garden[{}]);
+    const plants = await Plant.find({ owners: { "$in": req.user._id } }).populate("owners");
+    console.log(plants);
     res.json(plants);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 }
 
 async function create(req, res) {
-  console.log(req.body);
   try {
     const plant = await Plant.create(req.body);
+    plant.owners.push(req.user._id);
     await plant.save();
-    res.json(plant);
+    res.json("Plant added to your garden!");
   } catch (err) {
     res.status(500).json(err);
   }

@@ -26,6 +26,7 @@ const DisplayPage = (props) => {
         handleID={props.handleID}
         plantId={props.plantId}
         handleAddPlant={props.handleAddPlant}
+
       />
     </>
   );

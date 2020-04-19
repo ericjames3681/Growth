@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Card } from "semantic-ui-react";
-import plantsService from "../../services/plantsService";
+
 
 class GardenPage extends Component {
   //   async componentDidMount() {
