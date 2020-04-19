@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Header } from "semantic-ui-react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import DisplayPage from "../DisplayPage/DisplayPage";
 import LoginPage from "../LoginPage/LoginPage";
-// import GardenPage from "../GardenPage/GardenPage";
+import GardenPage from "../GardenPage/GardenPage";
 import userService from "../../services/userService";
 import * as plantsAPI from "../../services/plants-api-service";
 import "./App.css";
@@ -89,11 +89,12 @@ class App extends Component {
             render={() => (
               <DisplayPage
                 user={this.state.user}
-                handleLogout={this.handleLogout}
                 searchTerm={this.state.searchTerm}
                 handleSearch={this.handleSearch}
-                handleID={this.handleID}
                 plantId={this.state.plantId}
+                garden={this.state.garden}
+                handleID={this.handleID}
+                handleLogout={this.handleLogout}
                 handleGarden={this.handleGarden}
                 handleAddPlant={this.handleAddPlant}
               />
@@ -121,6 +122,15 @@ class App extends Component {
               />
             )}
           />
+          <Route exact path="/garden" render={() =>
+            userService.getUser() ?
+              <GardenPage
+                garden={this.state.garden}
+                handleGarden={this.handleGarden}
+              />
+              :
+              <Redirect to="/login" />
+          } />
         </Switch>
       </div>
     );

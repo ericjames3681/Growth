@@ -10,6 +10,7 @@ const DisplayPage = (props) => {
       <div className="DisplayPage"></div>
       <NavBar
         user={props.user}
+        garden={props.garden}
         handleLogout={props.handleLogout}
         handleGarden={props.handleGarden}
       />
