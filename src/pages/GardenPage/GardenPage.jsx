@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Link } from "react-router-dom";
-import { Card, CardContent, Responsive } from "semantic-ui-react";
+import { Card, CardContent, Responsive, Grid } from "semantic-ui-react";
 
 import UserPlants from "../../components/UserPlants/UserPlants";
 import * as plantsAPI from "../../services/plants-api-service";
@@ -25,14 +25,17 @@ class GardenPage extends Component {
             <Link to="/">H O M E</Link>
           </CardContent>
         </Card>
-        {this.props.garden.map((plant, idx) => (
-
-          <Responsive centered as={Card.Group} key={idx}>
+        <br></br>
+        <Responsive centered as={Card.Group}>
+          {this.props.garden.map((plant, idx) => (
             <UserPlants key={idx}
               garden={this.props.garden}
-              plant={plant} />
-          </Responsive>
-        ))}
+              plant={plant}
+              handleDeletePlant={this.props.handleDeletePlant}
+            />
+
+          ))}
+        </Responsive>
       </div>
     )
   }

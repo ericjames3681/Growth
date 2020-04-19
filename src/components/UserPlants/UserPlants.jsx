@@ -1,8 +1,9 @@
 import React from "react";
-import { Header, Card, CardContent, Image, Divider } from 'semantic-ui-react'
+import { Header, Card, CardContent, Image, Divider, Button, Icon } from 'semantic-ui-react';
+import "./UserPlants.css"
 
 
-const UserPlants = ({ plant }) => {
+const UserPlants = ({ plant, handleDeletePlant }) => {
     const name = plant.common_name;
     return (
 
@@ -14,13 +15,14 @@ const UserPlants = ({ plant }) => {
                         <Header content={plant.sci_name} />
                     )}
                 {plant.img ? (
-                    <Image src={plant.img} size="small" />
+                    <img src={plant.img} />
                 ) : (
-                        <Image
+                        <img
                             src="https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg"
-                            size="small"
+
                         />
                     )}
+                <Divider hidden />
                 <Divider />
                 <h3>S C I E N T I F I C &nbsp; N A M E</h3>
                 <strong>{plant.sci_name}</strong>
@@ -30,6 +32,13 @@ const UserPlants = ({ plant }) => {
                 <br />
                 <h3>F A M I L Y</h3>
                 <strong>{plant.family_common_name}</strong>
+                <Button color="red"
+                    onClick={() => handleDeletePlant({ id: plant._id, plantId: plant.plantId })}
+                >
+
+                    <Icon name="trash" />
+                    D E L E T E
+                </Button>
 
 
 

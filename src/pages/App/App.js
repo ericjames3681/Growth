@@ -66,7 +66,15 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   };
 
-  //call handleGarden inside DidMount, check if user
+  handleDeletePlant = async ({ id, plantId }) => {
+    await plantsAPI.deleteOne(id);
+    this.setState(
+      () => ({
+        garden: this.state.garden.filter((plant) => plant.plantId !== plantId)
+      }),
+      () => this.props.history.push("/garden")
+    );
+  }
   componentDidMount() {
     if (userService.getUser()) {
       this.handleGarden();
@@ -127,6 +135,7 @@ class App extends Component {
               <GardenPage
                 garden={this.state.garden}
                 handleGarden={this.handleGarden}
+                handleDeletePlant={this.handleDeletePlant}
               />
               :
               <Redirect to="/login" />
