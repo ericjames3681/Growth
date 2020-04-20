@@ -7,16 +7,7 @@ module.exports = {
   login,
   garden,
 };
-async function garden(req, res) {
-  console.log("user: ", req.user);
-  try {
-    await Score.create(req.body);
-    // Use the highScores action to return the list
-    highScores(req, res);
-  } catch (err) {
-    res.json({ err });
-  }
-}
+
 
 async function signup(req, res) {
   const user = new User(req.body);
