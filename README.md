@@ -1,68 +1,68 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Laughing Stock
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
 
-### `npm start`
+Laughing Stock is a simple site geared towards providing users with valuable information regarding the ex
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As a user, I want an app and site to deliver an ever growing list of venues and stand-up performers.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+End user goal: As a user, I want to view various descriptions in order to make an educated decision on if a certain venue, performer, or combination of both are worth their time.
+ 
+End business goal: Venues and performers may want to advertise on site in order to increase awareness of thier respective future events.
+ 
+Measurement of success: Engagement and individual contribution will translate into the growth of the data for all data entities.
 
-### `npm test`
+<br>
+<br>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Welcome Screen
+![](https://i.imgur.com/2h1m6Va.png)
 
-### `npm run build`
+<br>
+<br>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Comics Screen
+![](https://i.imgur.com/15p4nha.png)
+![](https://i.imgur.com/hemfvt9.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<br>
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Venues Screen
+![](https://i.imgur.com/27VLIta.png)
+![](https://i.imgur.com/oNiiRem.png)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Technologies Used
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Javascript
+* Express
+* Mongoose
+* MongoDb
+* Node.js
+* Materialize
+* OAuth2.0
+* Heroku
 
-## Learn More
+<br>
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Growth Trello](https://trello.com/b/sPZ6IyXL/growth)
+[Growth](https://growth-site.herokuapp.com/)
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<br>
+<br>
 
-### Analyzing the Bundle Size
+## Next Steps
+Would have loved to separated the states and cities of each venue as their own property, as to more easily reference them by location. Also would love to implement google maps API for the same reason for ease of access to directions should a user show interest in venue.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Would have also like to have an "event" model, that can only be created to and deleted from by an admin (node repl?), that would link performers to upcoming "events" AT a preferred "venue". I can see many possibilities for bugs in this implementation, so would require frequent maintenance, but I personally would love to see when and where performers of choice will be anh given weekend.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
