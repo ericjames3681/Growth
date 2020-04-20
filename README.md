@@ -1,60 +1,70 @@
-# Laughing Stock
+# GROWTH
 
 <br>
 
 
-Laughing Stock is a simple site geared towards providing users with valuable information regarding the ex
+Growth is a simple app designed to search for, and curate a list of a user's favorite plants.
 
-As a user, I want an app and site to deliver an ever growing list of venues and stand-up performers.
+As a user, I'd like to browse to a site and have the ability to securely sign-up or log-in from a previously created sign-up.
 
-End user goal: As a user, I want to view various descriptions in order to make an educated decision on if a certain venue, performer, or combination of both are worth their time.
+As a user, I'd like the ability to curate a list of plants I currently own or wish to own in order to reference their name and image.
+
+As a user, I'd like to be presented with a functional search bar to find plants of interest.
+
+As a user, I'd like to be directed to a detailed "show page" for individal plants of interest with the ability to add to my personalized list.
+
+As a user, I'd like an intuitive navigation bar that will direct me to key features.
  
-End business goal: Venues and performers may want to advertise on site in order to increase awareness of thier respective future events.
+End business goal: By breaking down plants of interest, third parties may be offered to advertise on site and offer deals based off user data.
  
-Measurement of success: Engagement and individual contribution will translate into the growth of the data for all data entities.
+Measurement of success: Engagement and individual contribution will translate into a more comprehensive data set to analyze and find trends.
 
 <br>
 <br>
 
 ### Welcome Screen
-![](https://i.imgur.com/2h1m6Va.png)
+![](https://i.imgur.com/V97mZ8J.png)
 
 <br>
 <br>
 
-### Comics Screen
-![](https://i.imgur.com/15p4nha.png)
-![](https://i.imgur.com/hemfvt9.png)
-
-<br>
-<br>
-
-### Venues Screen
-![](https://i.imgur.com/27VLIta.png)
-![](https://i.imgur.com/oNiiRem.png)
-
+### Search Results
+![](https://i.imgur.com/WnEyuzd.png)
 
 
 <br>
 <br>
 
-## Technologies Used
+### Detail Screen
+![](https://i.imgur.com/HuhoxLK.png)
+
+
+### User's "Garden" Screen:
+
+![](https://i.imgur.com/PWyXA3Y.png)
+
+<br>
+<br>
+
+## Technologies Used:
 
 * Javascript
 * Express
 * Mongoose
 * MongoDb
 * Node.js
-* Materialize
-* OAuth2.0
+* React
+* Semantic UI React
+* "Trefle" API
 * Heroku
 
 <br>
 <br>
 
-## Getting Started
+## Getting Started:
 
 [Growth Trello](https://trello.com/b/sPZ6IyXL/growth)
+
 [Growth](https://growth-site.herokuapp.com/)
 
 
@@ -62,7 +72,9 @@ Measurement of success: Engagement and individual contribution will translate in
 <br>
 
 ## Next Steps
-Would have loved to separated the states and cities of each venue as their own property, as to more easily reference them by location. Also would love to implement google maps API for the same reason for ease of access to directions should a user show interest in venue.
+There are many opportunities for the future of GROWTH. I see the potential for a more complete data set to fetch high defintion images, care instructions, preferred light conditions. I'd like to see the option of digitally updating plants in a given "garden" with a timestamp as to reference when the last time was I watered my actual plants.  
 
-Would have also like to have an "event" model, that can only be created to and deleted from by an admin (node repl?), that would link performers to upcoming "events" AT a preferred "venue". I can see many possibilities for bugs in this implementation, so would require frequent maintenance, but I personally would love to see when and where performers of choice will be anh given weekend.
+There are many interesting API's utilizing tensor flow object detection, I would love to implement the feature of a user uploading an image or augmented reality in order to identify an unknown plant a user may encounter.
+
+
 
