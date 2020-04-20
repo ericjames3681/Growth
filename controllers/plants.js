@@ -4,7 +4,7 @@ const User = require("../models/user");
 module.exports = {
   create,
   delete: deleteOne,
-  //   update,
+
   index,
 };
 

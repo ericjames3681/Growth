@@ -29,15 +29,6 @@ router.get("/detail", function (req, res) {
   });
 });
 
-// router.post("/garden", function (req, res) {
-//   console.log(req.query.id);
-//   request(API_URL + req.query.id + "?token=" + TOKEN, function (
-//     error,
-//     response,
-//     body
-//   ) {
-//     res.json(body);
-//   });
-// });
+
 
 module.exports = router;
