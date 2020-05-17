@@ -7,7 +7,6 @@ import LoginPage from "../LoginPage/LoginPage";
 import GardenPage from "../GardenPage/GardenPage";
 import userService from "../../services/userService";
 import * as plantsAPI from "../../services/plants-api-service";
-import Loader from "react-loader-spinner";
 import "./App.css";
 
 class App extends Component {
@@ -19,6 +18,7 @@ class App extends Component {
       plantId: "",
       garden: [],
       loading: false,
+      result: true,
     };
   }
 
@@ -27,7 +27,11 @@ class App extends Component {
     try {
       const response = await plantsAPI.findOne(term);
       const newPlant = await JSON.parse(response);
-      this.setState({ searchTerm: newPlant, loading: false });
+      if (newPlant.length === 0) {
+        this.setState({ result: false, loading: false });
+      } else {
+        this.setState({ searchTerm: newPlant, loading: false, result: true });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -103,10 +107,11 @@ class App extends Component {
               <DisplayPage
                 user={this.state.user}
                 searchTerm={this.state.searchTerm}
-                handleSearch={this.handleSearch}
                 plantId={this.state.plantId}
+                result={this.state.result}
                 loading={this.state.loading}
                 garden={this.state.garden}
+                handleSearch={this.handleSearch}
                 handleID={this.handleID}
                 handleLogout={this.handleLogout}
                 handleGarden={this.handleGarden}
