@@ -7,6 +7,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import GardenPage from "../GardenPage/GardenPage";
 import userService from "../../services/userService";
 import * as plantsAPI from "../../services/plants-api-service";
+import Loader from "react-loader-spinner";
 import "./App.css";
 
 class App extends Component {
@@ -17,14 +18,16 @@ class App extends Component {
       searchTerm: [],
       plantId: "",
       garden: [],
+      loading: false,
     };
   }
 
   handleSearch = async (term) => {
+    this.setState({ loading: true });
     try {
       const response = await plantsAPI.findOne(term);
       const newPlant = await JSON.parse(response);
-      this.setState({ searchTerm: newPlant });
+      this.setState({ searchTerm: newPlant, loading: false });
     } catch (error) {
       console.log(error);
     }
@@ -70,13 +73,13 @@ class App extends Component {
     await plantsAPI.deleteOne(id);
     this.setState(
       () => ({
-        garden: this.state.garden.filter((plant) => plant.plantId !== plantId)
+        garden: this.state.garden.filter((plant) => plant.plantId !== plantId),
       }),
       () => this.props.history.push("/garden")
     );
     const data = await plantsAPI.index();
     this.setState({ garden: data });
-  }
+  };
   componentDidMount() {
     if (userService.getUser()) {
       this.handleGarden();
@@ -102,6 +105,7 @@ class App extends Component {
                 searchTerm={this.state.searchTerm}
                 handleSearch={this.handleSearch}
                 plantId={this.state.plantId}
+                loading={this.state.loading}
                 garden={this.state.garden}
                 handleID={this.handleID}
                 handleLogout={this.handleLogout}
@@ -132,16 +136,21 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/garden" render={() =>
-            userService.getUser() ?
-              <GardenPage
-                garden={this.state.garden}
-                handleGarden={this.handleGarden}
-                handleDeletePlant={this.handleDeletePlant}
-              />
-              :
-              <Redirect to="/login" />
-          } />
+          <Route
+            exact
+            path="/garden"
+            render={() =>
+              userService.getUser() ? (
+                <GardenPage
+                  garden={this.state.garden}
+                  handleGarden={this.handleGarden}
+                  handleDeletePlant={this.handleDeletePlant}
+                />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
         </Switch>
       </div>
     );

@@ -3,6 +3,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import "./DisplayPage.css";
 import SearchResultsList from "../../components/SearchResultsList/SearchResultsList";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import Loader from "react-loader-spinner";
 
 const DisplayPage = (props) => {
   return (
@@ -21,14 +22,24 @@ const DisplayPage = (props) => {
       </h3>
       <br></br>
       <SearchBar handleSearch={props.handleSearch} />
-      <SearchResultsList
-        user={props.user}
-        searchTerm={props.searchTerm}
-        handleID={props.handleID}
-        plantId={props.plantId}
-        handleAddPlant={props.handleAddPlant}
-
-      />
+      {props.loading == true ? (
+        <Loader
+          type="TailSpin"
+          color="white"
+          height={200}
+          width={200}
+          timeout={3000} //3 secs
+        />
+      ) : (
+        <SearchResultsList
+          user={props.user}
+          searchTerm={props.searchTerm}
+          handleID={props.handleID}
+          plantId={props.plantId}
+          handleAddPlant={props.handleAddPlant}
+        />
+      )}
+      ;
     </>
   );
 };
