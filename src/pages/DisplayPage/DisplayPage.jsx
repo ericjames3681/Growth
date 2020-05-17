@@ -25,10 +25,10 @@ const DisplayPage = (props) => {
       <SearchBar handleSearch={props.handleSearch} />
       {props.loading === true ? (
         <Loader
-          type="TailSpin"
-          color="white"
-          height={200}
-          width={200}
+          type="Puff"
+          color="grey"
+          height={100}
+          width={100}
           timeout={3000} //3 secs
         />
       ) : props.result === true ? (
