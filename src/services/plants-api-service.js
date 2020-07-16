@@ -1,6 +1,6 @@
 import tokenService from "./tokenService";
 const BASE_URL = "/api/plants";
-
+console.log("----------" + BASE_URL);
 export function getAll() {
   return fetch(BASE_URL).then((res) => res.json());
 }

@@ -4,7 +4,7 @@ const TOKEN = process.env.TOKEN;
 const API_URL = "https://trefle.io/api/v1/plants/";
 
 router.get("/", function (req, res) {
-  request(API_URL + TOKEN, function (error, response, body) {
+  request(API_URL + "?token=" + TOKEN, function (error, response, body) {
     res.json(body);
   });
 });
@@ -20,12 +20,13 @@ router.get("/search", function (req, res) {
 });
 
 router.get("/detail", function (req, res) {
-  request(
-    API_URL + "?token=" + TOKEN + "&filter[id]=" + req.query.id,
-    function (error, response, body) {
-      res.json(body);
-    }
-  );
+  request(API_URL + req.query.id + "?token=" + TOKEN, function (
+    error,
+    response,
+    body
+  ) {
+    res.json(body);
+  });
 });
 
 module.exports = router;
