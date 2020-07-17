@@ -31,7 +31,11 @@ class App extends Component {
       if (newPlant.length === 0) {
         this.setState({ result: false, loading: false });
       } else {
-        this.setState({ searchTerm: newPlant, loading: false, result: true });
+        this.setState({
+          searchTerm: newPlant.data,
+          loading: false,
+          result: true,
+        });
       }
     } catch (error) {
       console.log(error);
@@ -42,7 +46,7 @@ class App extends Component {
     try {
       const response = await plantsAPI.findId(id);
       const detailId = await JSON.parse(response);
-      this.setState({ plantId: detailId });
+      this.setState({ plantId: detailId.data });
     } catch (error) {
       console.log(error);
     }

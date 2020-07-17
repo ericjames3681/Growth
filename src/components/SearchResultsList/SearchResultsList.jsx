@@ -47,8 +47,8 @@ const SearchResultsList = (props) => {
                 <Header content={props.plantId.scientific_name} />
               )}
               <Modal.Content>
-                {props.plantId.images && props.plantId.images.length ? (
-                  <Image src={props.plantId.images[0].url} size="big" />
+                {props.plantId.image_url ? (
+                  <Image src={props.plantId.image_url} size="big" />
                 ) : (
                   <Image
                     src="https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg"
