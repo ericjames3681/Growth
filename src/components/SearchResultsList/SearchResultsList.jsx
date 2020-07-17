@@ -66,7 +66,7 @@ const SearchResultsList = (props) => {
               </Modal.Content>
               {user ? (
                 <Modal.Actions>
-                  {props.plantId.images && props.plantId.images.length ? (
+                  {props.plantId.image_url ? (
                     <Button
                       color="green"
                       onClick={() =>
@@ -75,7 +75,7 @@ const SearchResultsList = (props) => {
                           sci_name: props.plantId.scientific_name,
                           duration: props.plantId.duration,
                           family: props.plantId.family_common_name,
-                          img: props.plantId.images[0].url,
+                          img: props.plantId.image_url,
                         })
                       }
                     >
