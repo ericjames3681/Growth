@@ -17,93 +17,64 @@ const SearchResultsList = (props) => {
     const name = plant.common_name;
 
     return (
-      <Card key={i}>
+      <Card size="large" key={i}>
         <Card.Content>
-          {name ? (
+          {plant.common_name ? (
             <Header content={plant.common_name} />
           ) : (
             <Header content={plant.scientific_name} />
           )}
-          <Responsive>
-            <Modal
-              className="Modal"
-              trigger={
-                <Button
-                  color="green"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    props.handleID(plant.id);
-                  }}
-                >
-                  V I E W
-                </Button>
-              }
-              closeIcon
-            >
-              {" "}
-              {name ? (
-                <Header content={props.plantId.common_name} />
-              ) : (
-                <Header content={props.plantId.scientific_name} />
-              )}
-              <Modal.Content>
-                {props.plantId.image_url ? (
-                  <Image src={props.plantId.image_url} size="big" />
-                ) : (
-                  <Image
-                    src="https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg"
-                    size="small"
-                  />
-                )}
-
-                <strong>NAME: {props.plantId.scientific_name}</strong>
-                <br />
-                <strong>DURATION: {props.plantId.duration}</strong>
-                <br />
-                <strong>FAMILY: {props.plantId.family_common_name}</strong>
-                <br />
-                <Divider />
-              </Modal.Content>
-              {user ? (
-                <Modal.Actions>
-                  {props.plantId.image_url ? (
-                    <Button
-                      color="green"
-                      onClick={() =>
-                        props.handleAddPlant({
-                          name: props.plantId.common_name,
-                          sci_name: props.plantId.scientific_name,
-                          duration: props.plantId.duration,
-                          family: props.plantId.family_common_name,
-                          img: props.plantId.image_url,
-                        })
-                      }
-                    >
-                      <Icon name="plus" /> A D D
-                    </Button>
-                  ) : (
-                    <Button
-                      color="green"
-                      onClick={() =>
-                        props.handleAddPlant({
-                          name: props.plantId.common_name,
-                          sci_name: props.plantId.scientific_name,
-                          duration: props.plantId.duration,
-                          family: props.plantId.family_common_name,
-                          img:
-                            "https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg",
-                        })
-                      }
-                    >
-                      <Icon name="plus" /> A D D
-                    </Button>
-                  )}
-                </Modal.Actions>
-              ) : (
-                <></>
-              )}
-            </Modal>
-          </Responsive>
+          {plant.image_url ? (
+            <img src={plant.image_url} alt="" />
+          ) : (
+            <img
+              src="https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg"
+              alt=""
+            />
+          )}
+          <Divider hidden />
+          <Divider />
+          <h3>S C I E N T I F I C &nbsp; N A M E</h3>
+          <strong>{plant.scientific_name}</strong>
+          <br />
+          <h3>F A M I L Y</h3>
+          <strong>{plant.family_common_name}</strong>
+          <br />
+          <Divider hidden />
+          {user ? (
+            plant.image_url ? (
+              <Button
+                color="green"
+                onClick={() =>
+                  props.handleAddPlant({
+                    name: plant.common_name,
+                    sci_name: plant.scientific_name,
+                    family: plant.family_common_name,
+                    img: plant.image_url,
+                  })
+                }
+              >
+                <Icon name="plus" /> A D D
+              </Button>
+            ) : (
+              <Button
+                color="green"
+                onClick={() =>
+                  props.handleAddPlant({
+                    name: plant.common_name,
+                    sci_name: plant.scientific_name,
+                    family: plant.family_common_name,
+                    img:
+                      "https://i.pinimg.com/236x/cf/79/0d/cf790d318088a962f7db227a4263af35.jpg",
+                  })
+                }
+              >
+                <Icon name="plus" /> A D D
+              </Button>
+            )
+          ) : (
+            <></>
+          )}
         </Card.Content>
       </Card>
     );

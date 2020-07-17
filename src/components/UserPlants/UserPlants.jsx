@@ -33,18 +33,16 @@ const UserPlants = ({ plant, handleDeletePlant }, props) => {
         <h3>S C I E N T I F I C &nbsp; N A M E</h3>
         <strong>{plant.sci_name}</strong>
         <br />
-        <h3>D U R A T I O N</h3>
-        <strong>{plant.duration}</strong>
-        <br />
         <h3>F A M I L Y</h3>
-        <strong>{plant.family_common_name}</strong>
+        <strong>{plant.family}</strong>
+        <Divider hidden />
         <Button
           color="red"
           onClick={() =>
             handleDeletePlant({ id: plant._id, plantId: plant.plantId })
           }
         >
-          <Icon name="trash" />D E L E T E
+          <Icon name="trash" /> D E L E T E
         </Button>
       </CardContent>
     </Card>
