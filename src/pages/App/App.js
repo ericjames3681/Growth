@@ -24,7 +24,7 @@ class App extends Component {
 
   handleSearch = async (term) => {
     this.setState({ loading: true });
-    console.log(term);
+
     try {
       const response = await plantsAPI.findOne(term);
       const newPlant = await JSON.parse(response);
