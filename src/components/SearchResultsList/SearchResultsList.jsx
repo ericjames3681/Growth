@@ -3,10 +3,8 @@ import {
   Card,
   Button,
   Responsive,
-  Modal,
   Header,
   Icon,
-  Image,
   Divider,
 } from "semantic-ui-react";
 
@@ -14,8 +12,6 @@ const SearchResultsList = (props) => {
   const user = props.user;
 
   const plants = props.searchTerm.map((plant, i) => {
-    const name = plant.common_name;
-
     return (
       <Card size="large" key={i}>
         <Card.Content>
